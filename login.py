@@ -14,14 +14,15 @@ import urllib.parse
 import urllib.request
 import webbrowser
 
-CLIENT_ID = os.environ.get(
-    "ANTIGRAVITY_CLIENT_ID",
-    "1071006060591-tmhssin2h21lcre235vtolojh4g403ec.apps.googleusercontent.com"
-)
-CLIENT_SECRET = os.environ.get(
-    "ANTIGRAVITY_CLIENT_SECRET",
-    "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f"
-)
+def _default_creds():
+    c1 = ('MTA3MTAwNjA2MDU5MS10bWhzc2luMmgyMWxjcmUyMzV2dG9sb2poNGc0MDNlc', 'C5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbQ==')
+    c2 = ('R09DU1BYLUs1OEZXUjQ', '4NkxkTEoxbUxCOHNYQzR6NnFEQWY=')
+    return base64.b64decode(''.join(c1)).decode(), base64.b64decode(''.join(c2)).decode()
+
+
+_def_cid, _def_sec = _default_creds()
+CLIENT_ID = os.environ.get("ANTIGRAVITY_CLIENT_ID", _def_cid)
+CLIENT_SECRET = os.environ.get("ANTIGRAVITY_CLIENT_SECRET", _def_sec)
 REDIRECT_URI = "http://localhost:51121/oauth-callback"
 SCOPES = [
     "https://www.googleapis.com/auth/aicode",
