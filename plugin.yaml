@@ -1,0 +1,6 @@
+name: antigravity
+kind: model-provider
+version: 1.0.0
+description: Direct Google Antigravity HTTP adapter for Hermes Agent (Gemini 3.8 Flash, Claude Sonnet 4.6). Standalone, zero Node/Pi dependencies.
+author: Melih Altin
+license: MIT
